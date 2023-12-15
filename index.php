@@ -106,7 +106,8 @@ $errMSG = "<p class='red center'>Sorry, only JPG, JPEG, PNG & GIF files are allo
 </form>
 
 
-<!--<?php include 'mail_handler.php'; ?>-->
+<?php include 'mail_handler.php'; ?>
 </div>
+<?php include 'footer.php'; ?>
 </body>
 </html>

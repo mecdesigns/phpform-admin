@@ -20,6 +20,7 @@
     <title>Password protected</title>
 </head>
 <body>
+<?php include 'header.php'; ?>
     <div style="text-align:center;margin-top:50px;">
         You must enter the password to view this content.<br />
 		Hint password is admin.<br /><br />
@@ -27,5 +28,6 @@
             <input type="text" name="password">
         </form>
     </div>
+<?php include 'footer.php'; ?>
 </body>
 </html>

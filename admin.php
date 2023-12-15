@@ -20,3 +20,4 @@ if (($handle = fopen("formdata-submissions.csv", "r")) !== FALSE) {
 <br />
 <br />
 <a href="image/" target="_blank">View Uploaded Images</a>
+<?php include 'footer.php'; ?>
