@@ -21,13 +21,16 @@
 </head>
 <body>
 <?php include 'header.php'; ?>
+<div id="main">
     <div style="text-align:center;margin-top:50px;">
         You must enter the password to view this content.<br />
 		Hint password is admin.<br /><br />
         <form method="POST">
-            <input type="text" name="password">
+            <input class="blue" type="text" name="password">
+			<input type="submit" name="submit" class="submit btn" value="Submit"/>
         </form>
     </div>
+</div>
 <?php include 'footer.php'; ?>
 </body>
 </html>
