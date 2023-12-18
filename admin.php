@@ -23,7 +23,7 @@ if (($handle = fopen("formdata-submissions.csv", "r")) !== FALSE) {
         $name = $data[0];
         $email = $data[1];
         $coverimage = $data[2];
-        echo "<tr><td style='width:33%'>" . $name . "</td><td style='width:33%'>" . $email . "</td><td style='width:33%'><a href='image/$coverimage'><img src='image/$coverimage' height='80' width='auto' /></a></td></tr>\n";
+        echo "<tr><td style='width:33%'>" . $name . "</td><td style='width:33%'>" . $email . "</td><td style='width:33%'><a href='image/$coverimage'><img src='image/$coverimage' height='40' width='auto' /></a></td></tr>\n";
     }
 	echo "</table>";
 
@@ -32,6 +32,6 @@ if (($handle = fopen("formdata-submissions.csv", "r")) !== FALSE) {
 ?>
 <br />
 <br />
-<a href="formdata-submissions.csv" class="csv admin" target="_blank">Download CSV File</a>
+<p class="center"><a href="formdata-submissions.csv" class="csv admin" target="_blank">Download CSV File</a></p>
 </div>
 <?php include 'footer.php'; ?>

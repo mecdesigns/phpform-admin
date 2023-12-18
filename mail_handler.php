@@ -4,8 +4,8 @@ if(isset($_POST['submit'])){
     $from = $_POST['email']; // this is the sender's Email address
     $name = $_POST['name'];
     $email = $_POST['email'];
-    $subject = "Form submission";
-    $subject2 = "Copy of your form submission";
+    $subject = "PHP Form submission";
+    $subject2 = "Copy of your PHP form submission";
     $message = $name . " " . " wrote the following:" . $email;
     $message2 = "Here is a copy of your message " . $name . "\n\n" . $email;
 

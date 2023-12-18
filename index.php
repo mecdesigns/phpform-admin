@@ -17,7 +17,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $tmp_dir = $_FILES['coverimg']['tmp_name'];
     $imgSize = $_FILES['coverimg']['size'];
 
-    if (!empty($imgFile)) {
+    $errors = array();
+    // Check if Name is set.
+    if (empty($name)) {
+        $errors[] = '<p class="red center">Name is required</p>';
+    }
+    // Check if email is set.
+    if (empty($email)) {
+        $errors[] = '<p class="red center">Email is required</p>';
+    }
+
+    // Validate the email address.
+     $pattern = "/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/i";
+     if (!preg_match($pattern, $email)) {
+        $errors[] = '<p class="red center">Please enter a valid email address</p>';
+        echo $errors[0];
+     }
+
+    if (!empty ($imgFile && !$errors)) {
         $upload_dir = 'image/'; // upload directory
         $imgExt = strtolower(pathinfo($imgFile, PATHINFO_EXTENSION)); // get image extension
         // valid image extensions
@@ -34,27 +51,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $coverimage = $coverpic; // Assign the file name to $coverimage
             } else {
                 $errMSG = "<p class='red center'>Sorry, your file is too large. 1MB is the limit.</p>";
+                echo $errMSG;
             }
         } else {
             $errMSG = "<p class='red center'>Sorry, only JPG, JPEG, PNG & GIF files are allowed.</p>";
+            echo $errMSG;
         }
     }
 
-    $errors = array();
-    // Check if Name is set.
-    if (empty($name)) {
-        $errors[] = 'Name is required';
-    }
-    // Check if email is set.
-    if (empty($email)) {
-        $errors[] = 'Email is required';
-    }
-
-    // Validate the email address.
-    // $pattern = "/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/i";
-    // if (!preg_match($pattern, $email)) {
-    //    $errors[] = 'Please enter a valid email address';
-    // }
+   
 
     // If no errors, carry on.
     if (empty($errors)) {
@@ -120,7 +125,7 @@ function test_input($data)
     </form>
 </div>
 
-<!--<?php include 'mail_handler.php'; ?>-->
+<?php include 'mail_handler.php'; ?>
 </div>
 <?php include 'footer.php'; ?>
 </body>
